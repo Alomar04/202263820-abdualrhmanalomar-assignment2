@@ -1,207 +1,257 @@
-<!doctype html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abdulrahman Alomar | Portfolio</title>
-
+    <title>Assignment 2 | Interactive Portfolio</title>
+    <meta
+      name="description"
+      content="Interactive portfolio website with tabbed navigation, theme persistence, form validation, and smooth transitions."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-      };
-    </script>
-    <link rel="stylesheet" href="./css/styles.css" />
-    <script defer src="./js/script.js"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script defer src="js/script.js"></script>
   </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="container header-inner">
+          <a class="brand" href="#" aria-label="Portfolio home">
+            <span class="brand-mark">AA</span>
+            <span class="brand-text">Interactive Portfolio</span>
+          </a>
 
-  <body class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
-      <nav class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#" class="text-lg font-semibold tracking-tight">AA<span class="text-emerald-500">.</span></a>
-        <div class="hidden items-center gap-6 text-sm font-medium md:flex">
-          <a class="transition hover:text-emerald-500" href="#about">About</a>
-          <a class="transition hover:text-emerald-500" href="#projects">Projects</a>
-          <a class="transition hover:text-emerald-500" href="#contact">Contact</a>
-        </div>
-        <button
-          id="theme-toggle"
-          class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition hover:border-emerald-400 hover:text-emerald-500 dark:border-slate-800 dark:bg-slate-900"
-          aria-label="Toggle dark mode"
-        >
-          <i id="theme-icon" class="fa-solid fa-moon"></i>
-          <span class="hidden sm:inline">Theme</span>
-        </button>
-      </nav>
-    </header>
-
-    <main>
-      <section id="about" class="mx-auto w-full max-w-6xl px-6 pb-16 pt-16 md:pt-24">
-        <div class="grid items-center gap-12 md:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <p class="text-sm uppercase tracking-[0.3em] text-emerald-500">Portfolio</p>
-            <h1 id="greeting" class="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-              Hello
-            </h1>
-            <h2 class="mt-4 text-3xl font-semibold md:text-4xl">Abdulrahman Alomar</h2>
-            <p class="mt-2 text-lg text-slate-600 dark:text-slate-300">Junior SWE Student at KFUPM</p>
-            <p class="mt-6 max-w-xl text-base leading-relaxed text-slate-700 dark:text-slate-200">
-              I am a Junior Software Engineering student at KFUPM (SWE-363). I specialize in building intelligent web
-              platforms that integrate AI with educational and institutional systems.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#projects"
-                class="rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:-translate-y-0.5 hover:bg-emerald-400"
+          <div class="header-actions">
+            <nav class="tab-nav" aria-label="Primary">
+              <button
+                id="about-tab"
+                class="tab-button active"
+                data-tab="about"
+                type="button"
+                aria-selected="true"
+                aria-controls="about"
               >
-                View Projects
-              </a>
-              <a
-                href="#contact"
-                class="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-emerald-500 hover:text-emerald-500 dark:border-slate-700 dark:text-slate-200"
+                About
+              </button>
+              <button
+                id="projects-tab"
+                class="tab-button"
+                data-tab="projects"
+                type="button"
+                aria-selected="false"
+                aria-controls="projects"
               >
-                Get in Touch
-              </a>
-            </div>
-          </div>
-          <div class="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-emerald-50 via-white to-slate-100 p-8 shadow-xl dark:border-slate-800 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950">
-            <div class="absolute -left-16 -top-10 h-32 w-32 rounded-full bg-emerald-400/20 blur-3xl"></div>
-            <div class="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-slate-400/20 blur-3xl"></div>
-            <div class="relative space-y-6">
-              <div class="rounded-2xl border border-white/40 bg-white/70 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900/70">
-                <p class="text-sm uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">Focus</p>
-                <p class="mt-2 text-lg font-semibold">AI-enhanced learning platforms</p>
-              </div>
-              <div class="rounded-2xl border border-white/40 bg-white/70 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900/70">
-                <p class="text-sm uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">Current</p>
-                <p class="mt-2 text-lg font-semibold">SWE-363 Projects</p>
-              </div>
-              <div class="rounded-2xl border border-white/40 bg-white/70 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900/70">
-                <p class="text-sm uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">Goal</p>
-                <p class="mt-2 text-lg font-semibold">Intelligent student experiences</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                Projects
+              </button>
+              <button
+                id="contact-tab"
+                class="tab-button"
+                data-tab="contact"
+                type="button"
+                aria-selected="false"
+                aria-controls="contact"
+              >
+                Contact
+              </button>
+            </nav>
 
-      <section id="projects" class="bg-slate-100/60 py-16 dark:bg-slate-950">
-        <div class="mx-auto w-full max-w-6xl px-6">
-          <div class="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p class="text-sm uppercase tracking-[0.3em] text-emerald-500">Projects</p>
-              <h3 class="mt-3 text-3xl font-semibold">Selected Work</h3>
-            </div>
-            <p class="max-w-md text-sm text-slate-600 dark:text-slate-300">
-              A snapshot of academic projects connecting AI, education, and institutional systems.
-            </p>
-          </div>
-          <div class="mt-10 grid gap-8 md:grid-cols-2">
-            <article class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
-              <img src="https://placehold.co/600x400?text=AI+Tutor" alt="AI Tutor" class="h-56 w-full object-cover" />
-              <div class="p-6">
-                <h4 class="text-xl font-semibold">AI Tutor</h4>
-                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                  A Blackboard-like platform integrated with AI to personalize learning and feedback loops.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2 text-xs text-emerald-600">
-                  <span class="rounded-full bg-emerald-100 px-3 py-1 dark:bg-emerald-500/10">AI</span>
-                  <span class="rounded-full bg-emerald-100 px-3 py-1 dark:bg-emerald-500/10">EdTech</span>
-                  <span class="rounded-full bg-emerald-100 px-3 py-1 dark:bg-emerald-500/10">UX</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
-              <img src="https://placehold.co/600x400?text=KFUPM+Co-pilot" alt="KFUPM Co-pilot" class="h-56 w-full object-cover" />
-              <div class="p-6">
-                <h4 class="text-xl font-semibold">KFUPM Co-pilot</h4>
-                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                  AI integration with KFUPM systems to streamline course planning and campus workflows.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2 text-xs text-emerald-600">
-                  <span class="rounded-full bg-emerald-100 px-3 py-1 dark:bg-emerald-500/10">Automation</span>
-                  <span class="rounded-full bg-emerald-100 px-3 py-1 dark:bg-emerald-500/10">AI Systems</span>
-                  <span class="rounded-full bg-emerald-100 px-3 py-1 dark:bg-emerald-500/10">Strategy</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="mx-auto w-full max-w-6xl px-6 py-16">
-        <div class="grid gap-12 md:grid-cols-[1fr_1.2fr]">
-          <div>
-            <p class="text-sm uppercase tracking-[0.3em] text-emerald-500">Contact</p>
-            <h3 class="mt-3 text-3xl font-semibold">Let’s build together</h3>
-            <p class="mt-4 text-base text-slate-600 dark:text-slate-300">
-              Reach out for collaborations, project discussions, or academic opportunities.
-            </p>
-            <div class="mt-6 flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-700 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">
-              <i class="fa-solid fa-envelope text-emerald-500"></i>
-              <span>s202263820@kfupm.edu.sa</span>
-            </div>
-          </div>
-
-          <form id="contact-form" class="space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-            <div>
-              <label for="name" class="text-sm font-medium">Name</label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-200 dark:border-slate-700 dark:bg-slate-800"
-              />
-            </div>
-            <div>
-              <label for="email" class="text-sm font-medium">Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-200 dark:border-slate-700 dark:bg-slate-800"
-              />
-            </div>
-            <div>
-              <label for="message" class="text-sm font-medium">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                required
-                class="mt-2 w-full resize-none rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-200 dark:border-slate-700 dark:bg-slate-800"
-              ></textarea>
-            </div>
             <button
-              type="submit"
-              class="w-full rounded-2xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:-translate-y-0.5 hover:bg-emerald-400"
+              id="theme-toggle"
+              class="theme-toggle"
+              type="button"
+              aria-label="Switch between light and dark theme"
             >
-              Send Message
+              <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+              <span id="theme-toggle-text">Dark Mode</span>
             </button>
-          </form>
+          </div>
         </div>
-      </section>
-    </main>
+      </header>
 
-    <footer class="border-t border-slate-200 py-6 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-400">
-      <p>© 2026 Abdulrahman Alomar. All rights reserved.</p>
-    </footer>
+      <main class="container main-content">
+        <section
+          id="about"
+          class="tab-panel active"
+          role="tabpanel"
+          aria-labelledby="about-tab"
+        >
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="eyebrow">Abdulrahman Alomar • SWE-363 Portfolio</p>
+              <p id="greeting" class="greeting-text">Good day.</p>
+              <h1>Upgrading a personal portfolio into an interactive web application.</h1>
+              <p class="hero-text">
+                I am a Software Engineering student at KFUPM, and this project
+                was built for SWE-363 as part of moving from a static portfolio
+                to a more interactive frontend experience. The goal was to keep
+                the website personal and practical while adding features that
+                improve usability.
+              </p>
+              <p class="hero-text">
+                This version uses JavaScript to switch between sections without
+                reloading the page, remember the selected theme with
+                <code>localStorage</code>, and validate the contact form with
+                clear feedback. It reflects both the course requirements and the
+                type of project work I am interested in building.
+              </p>
+
+              <div class="hero-highlights">
+                <div class="highlight-card">
+                  <span class="highlight-label">Course Goal</span>
+                  <strong>Frontend Interactivity</strong>
+                  <p>Applying HTML, CSS, and JavaScript to make a static site feel more dynamic.</p>
+                </div>
+                <div class="highlight-card">
+                  <span class="highlight-label">Project Focus</span>
+                  <strong>Useful Student-Centered Features</strong>
+                  <p>Responsive layout, theme persistence, and form validation with smooth transitions.</p>
+                </div>
+              </div>
+            </div>
+
+            <aside class="hero-panel" aria-label="Profile summary">
+              <div class="metric-card">
+                <span class="metric-number">KFUPM</span>
+                <span class="metric-label">Software Engineering Student</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-number">SWE-363</span>
+                <span class="metric-label">Interactive Portfolio Assignment</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-number">HTML/CSS/JS</span>
+                <span class="metric-label">Core technologies used in this submission</span>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section
+          id="projects"
+          class="tab-panel"
+          role="tabpanel"
+          aria-labelledby="projects-tab"
+          hidden
+        >
+          <div class="section-heading">
+            <p class="eyebrow">Selected Work</p>
+            <h2>Projects that balance usability and implementation quality.</h2>
+            <p>
+              These sample projects present a strong academic portfolio with
+              modern styling, concise descriptions, and hover-ready cards.
+            </p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="project-visual project-visual-one"></div>
+              <div class="project-content">
+                <span class="project-tag">SWE-206 Team Project</span>
+                <h3>AI Tutor</h3>
+                <p>
+                  A Blackboard-like platform integrated with AI to personalize
+                  learning, improve content delivery, and support more useful
+                  academic feedback loops.
+                </p>
+                <a href="#contact" class="inline-link" data-open-tab="contact">Discuss this project</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-visual project-visual-two"></div>
+              <div class="project-content">
+                <span class="project-tag">SWE-216 Team Project</span>
+                <h3>KFUPM Co-pilot</h3>
+                <p>
+                  An AI assistant concept connected to KFUPM systems to simplify
+                  course planning, student workflows, and institutional support
+                  tasks.
+                </p>
+                <a href="#contact" class="inline-link" data-open-tab="contact">Request more details</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-visual project-visual-three"></div>
+              <div class="project-content">
+                <span class="project-tag">SWE-363 Team Project</span>
+                <h3>Appliflow</h3>
+                <p>
+                  A tracker for internships and summer training focused on
+                  mentorship, progress visibility, and a smoother experience
+                  for students managing applications and opportunities.
+                </p>
+                <a href="#contact" class="inline-link" data-open-tab="contact">Explore collaboration</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section
+          id="contact"
+          class="tab-panel"
+          role="tabpanel"
+          aria-labelledby="contact-tab"
+          hidden
+        >
+          <div class="contact-layout">
+            <div class="section-heading">
+              <p class="eyebrow">Contact Me</p>
+              <h2>Send a message through the validated contact form.</h2>
+              <p>
+                The JavaScript logic checks for empty inputs, validates email
+                format, shows inline messages, and provides a success state when
+                the form is completed correctly.
+              </p>
+
+              <div class="contact-note">
+                <strong>Availability</strong>
+                <p>Open to academic collaborations, portfolio reviews, and frontend projects.</p>
+              </div>
+            </div>
+
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input id="name" name="name" type="text" placeholder="Enter your full name" />
+                <small class="error-message" id="name-error"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" placeholder="Enter your email address" />
+                <small class="error-message" id="email-error"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Write your message here"
+                ></textarea>
+                <small class="error-message" id="message-error"></small>
+              </div>
+
+              <button class="primary-button" type="submit">Send Message</button>
+              <p id="form-success" class="success-message" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <p>Assignment 2: Interactive Portfolio Website</p>
+          <p>Built with HTML, CSS, and JavaScript.</p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
