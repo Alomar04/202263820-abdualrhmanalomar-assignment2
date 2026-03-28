@@ -1,4 +1,4 @@
-# SWE-363 Portfolio — Abdulrahman Alomar
+# SWE-363 Portfolio 2 — Abdulrahman Alomar
 
 ![Status: Active](https://img.shields.io/badge/Status-Active-22c55e)
 
