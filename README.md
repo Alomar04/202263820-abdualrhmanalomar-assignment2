@@ -1,5 +1,5 @@
 # SWE-363 Portfolio 2 — Abdulrahman Alomar
-![Status: Active](https://img.shields.io/badge/Status-active-22c55e)
+![Status: Active](https://img.shields.io/badge/Status-inactive-22c55e)
 
 ## Project Description
 This project upgrades a static portfolio into a modern interactive web application using HTML, CSS, and JavaScript. The website includes tabbed navigation for switching between portfolio sections without reloading the page, a dark/light theme toggle that persists with `localStorage`, a validated contact form with inline feedback, and smooth visual transitions that improve the user experience.
